@@ -1,0 +1,7 @@
+  curl
+  git
+  vim
+  build-essential
+  software-properties-common
+  direnv
+  jq

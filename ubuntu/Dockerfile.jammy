@@ -1,0 +1,16 @@
+FROM ubuntu:jammy
+
+ARG packages
+ARG package_args='--allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends'
+
+RUN echo "debconf debconf/frontend select noninteractive" | debconf-set-selections && \
+  export DEBIAN_FRONTEND=noninteractive && \
+  apt -y $package_args update && \
+  apt -y $package_args dist-upgrade && \
+  apt -y $package_args install $packages && \
+  apt clean
+
+#Setup Golang
+COPY ./scripts/install-go.sh /tmp/
+RUN ./tmp/install-go.sh
+
