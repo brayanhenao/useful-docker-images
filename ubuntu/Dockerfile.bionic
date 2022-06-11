@@ -10,7 +10,23 @@ RUN echo "debconf debconf/frontend select noninteractive" | debconf-set-selectio
   apt -y $package_args install $packages && \
   apt clean
 
-#Setup Golang
-COPY ./scripts/install-go.sh /tmp/
-RUN ./tmp/install-go.sh
+#Copy scripts to /tmp
+COPY ./scripts /tmp/scripts
 
+#Install Golang
+RUN ./tmp/scripts/install-go.sh
+
+#Install nvm
+RUN ./tmp/scripts/install-nvm.sh
+
+#Install latest node version
+RUN nvm install node
+
+#Install kubectl
+RUN ./tmp/scripts/install-kubectl.sh
+
+#Setup nvim
+RUN ./tmp/scripts/setup-nvim.sh
+
+#Setup Git aliases
+RUN ./tmp/scripts/setup-git-aliases.sh

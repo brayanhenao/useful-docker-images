@@ -1,0 +1,17 @@
+nnoremap <C-\> <C-w>v
+nnoremap <C-^> <C-w>s
+nnoremap ,,    <C-w>w
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+imap jj <Esc>
+
+let g:netrw_list_hide=0
+
+let g:ale_go_golangci_lint_options = '--fast --tests'
+
+Plug 'cespare/vim-toml'
+Plug 'rhysd/vim-crystal'
+Plug 'cappyzawa/starlark.vim'
+Plug 'martys34/ytt.vim'

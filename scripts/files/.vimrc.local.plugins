@@ -1,0 +1,4 @@
+Plug 'cespare/vim-toml'
+Plug 'rhysd/vim-crystal'
+Plug 'cappyzawa/starlark.vim'
+Plug 'martys34/ytt.vim'
