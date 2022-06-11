@@ -1,0 +1,7 @@
+FROM bhenao/ubuntu:bionic
+
+RUN apt -y update && \
+ add-apt-repository ppa:deadsnakes/ppa -y && \
+ apt -y update
+
+RUN apt install -y python2.6 python2.6-dev python-pip
