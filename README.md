@@ -26,15 +26,13 @@ docker pull bhenao/ubuntu:jammy
 
 * Programming languages:
     * Go (latest version)
-    * Node (latest version from nvm)
+    * Node (LTS version from nvm)
     * Java (default OpenJDK version)
 
 * Tools:
     * curl
     * git
-    * vim
-    * build-essential
-    * software-properties-common
+    * vim (with neovim)
     * direnv
     * jq
     * maven

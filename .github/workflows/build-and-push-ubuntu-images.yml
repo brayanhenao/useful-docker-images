@@ -42,7 +42,7 @@ jobs:
           push: true
           file: ubuntu/Dockerfile.jammy
           build-args: packages=${{ steps.get-packages-list.outputs.packages }}
-          tags: bhenao/ubuntu:jammy,bhenao/ubuntu:latest
+          tags: bhenao/test-ubuntu:jammy
 
       - name: Build and push Ubuntu Bionic
         uses: docker/build-push-action@v3
@@ -51,4 +51,4 @@ jobs:
           push: true
           file: ubuntu/Dockerfile.bionic
           build-args: packages=${{ steps.get-packages-list.outputs.packages }}
-          tags: bhenao/ubuntu:bionic
+          tags: bhenao/test-ubuntu:bionic

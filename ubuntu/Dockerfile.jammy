@@ -1,11 +1,17 @@
 FROM ubuntu:jammy
 
+MAINTAINER Brayan Henao
+
+SHELL ["/bin/bash", "-c"]
+
 ARG packages
 ARG package_args='--allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends'
 
 RUN echo "debconf debconf/frontend select noninteractive" | debconf-set-selections && \
   export DEBIAN_FRONTEND=noninteractive && \
   apt -y $package_args update && \
+  apt -y $package_args install build-essential && \
+  apt -y $package_args install software-properties-common && \
   apt -y $package_args dist-upgrade && \
   apt -y $package_args install $packages && \
   apt clean
@@ -16,11 +22,8 @@ COPY ./scripts /tmp/scripts
 #Install Golang
 RUN ./tmp/scripts/install-go.sh
 
-#Install nvm
-RUN ./tmp/scripts/install-nvm.sh
-
-#Install latest node version
-RUN nvm install node
+#Install nvm and node
+RUN ./tmp/scripts/install-nvm-and-node.sh
 
 #Install kubectl
 RUN ./tmp/scripts/install-kubectl.sh
