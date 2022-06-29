@@ -27,6 +27,9 @@ RUN ./tmp/scripts/install-go.sh
 #Install nvm and node
 RUN ./tmp/scripts/install-nvm-and-node.sh
 
+#Setup rbenv
+RUN ./tmp/scripts/setup-rbenv-plugin.sh
+
 #Install kubectl
 RUN ./tmp/scripts/install-kubectl.sh
 

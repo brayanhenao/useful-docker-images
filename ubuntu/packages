@@ -7,3 +7,4 @@ default-jdk
 maven
 gh
 python3-pip
+rbenv
