@@ -37,6 +37,7 @@ docker pull bhenao/ubuntu:jammy
     * jq
     * maven
     * nvm
+    * rbenv (ruby installation tool)
     * npm
     * gh (GitHub CLI)
     * kubectl
